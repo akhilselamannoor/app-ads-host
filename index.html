@@ -2,9 +2,19 @@
 <html>
 <head>
   <title>Akhil Info</title>
+  <script>
+    // Check for ?code= or ?authtoken= in URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code") || params.get("authtoken");
+    if (code) {
+      // Redirect to your app via custom scheme with the code
+      window.location.href = "myalgobot://callback?code=" + code;
+    }
+  </script>
 </head>
 <body>
   <h1>Welcome to akhilinfo.xyz</h1>
   <p><a href="https://play.google.com/store/apps/details?id=com.akhils.qan">QAn application download.</a></p>
+  <p>If you are not redirected, please open the app manually.</p>
 </body>
 </html>
